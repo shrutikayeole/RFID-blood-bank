@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drive Info - Blood Bank</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <header class="bg-red-800 text-white py-4 px-8">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Blood Bank</h1>
+        <div class="flex items-center space-x-6">
+          <a href="#" class="text-white hover:text-gray-200">Info</a>
+          <a href="#" class="text-white hover:text-gray-200">About</a>
+          <a href="#" class="text-white hover:text-gray-200">Contact</a>
+          <div class="relative dropdown">
+            <div
+              class="bg-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+              id="profileIcon"
+            >
+              <i class="fa-solid fa-user text-gray-600 text-lg"></i>
+            </div>
+            <div
+              class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg dropdown-menu hidden"
+            >
+              <a
+                href="#"
+                class="block py-2 px-4 text-gray-800 hover:bg-gray-200"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <form
+      class="container mx-auto px-4 py-8 flex justify-center"
+      method="POST"
+      action="{% url 'your_add_donor_view' %}"
+    >
+      <button
+        class="bg-red-700 hover:bg-red-500 text-white py-2 px-4 rounded mb-4 text-center"
+        type="submit"
+      >
+        Add a Donor
+      </button>
+    </form>
+
+    <div class="container mx-auto px-4 py-8">
+      <h2 class="text-xl font-semibold mb-4">Drive details.</h2>
+
+      <!-- Table Container -->
+      <div class="w-60% mx-auto">
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table
+            class="table-auto w-full border-collapse border border-gray-300"
+          >
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="px-4 py-2 border border-gray-300">Sr Number</th>
+                <!-- Adjusted class and width -->
+                <th class="px-4 py-2 border border-gray-300">Name</th>
+                <th class="px-4 py-2 border border-gray-300">Blood Group</th>
+                <th class="px-4 py-2 border border-gray-300">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-4 py-2 border border-gray-300">1</td>
+                <!-- Adjusted class and width -->
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+              </tr>
+              <tr>
+                <td class="px-4 py-2 border border-gray-300">2</td>
+                <!-- Adjusted class and width -->
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300"></td>
+              </tr>
+              <!-- Add more rows as needed -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+   <!-- Buttons -->
+<div class="container mx-auto flex justify-center mb-8">
+  <form
+    class="flex flex-col"
+    method="POST"
+    action="{% url 'your_push_view' %}"
+  >
+    <button
+      class="bg-red-700 hover:bg-red-600 text-white py-2 px-4 rounded mb-4"
+      name="push_main_bank"
+    >
+      Push to Main Bank
+    </button>
+    <button
+      class="bg-red-700 hover:bg-red-600 text-white py-2 px-4 rounded"
+      name="push_local_inventory"
+    >
+      Push to Local Inventory
+    </button>
+  </form>
+</div>
+
+
+    <footer
+      class="bg-red-800 text-white py-4 text-center fixed bottom-0 w-full"
+    >
+      <p>&copy; 2024 Blood Bank. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const profileIcon = document.getElementById("profileIcon");
+        const dropdownMenu = profileIcon.nextElementSibling;
+
+        profileIcon.addEventListener("click", function () {
+          dropdownMenu.classList.toggle("hidden");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+          if (!profileIcon.contains(event.target)) {
+            dropdownMenu.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

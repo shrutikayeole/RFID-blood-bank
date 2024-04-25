@@ -1,32 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Home - Blood Bank</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Drive Registration Form</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        .dropdown-menu {
-            display: none;
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
         }
 
-        .dropdown:hover .dropdown-menu {
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bg-red-800 {
+            background-color: #8b0000;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .space-x-6 > *+* {
+            margin-left: 1rem;
+        }
+
+        .dropdown-menu {
+            top: 3rem;
+        }
+
+        .dropdown-menu a {
             display: block;
+            padding: 0.5rem 1rem;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f4f4f4;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #8b0000;
+            color: #fff;
+            text-align: center;
+            padding: 0.25rem 0;
         }
     </style>
 </head>
+
 <body class="bg-gray-100">
-    <header class="bg-red-800 text-white py-4 px-8">
+    <header class="bg-red-800 text-white py-2 px-4">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Blood Bank</h1>
+            <h1 class="text-lg font-bold">Blood Bank</h1>
             <div class="flex items-center space-x-6">
                 <a href="#" class="text-white hover:text-gray-200">Info</a>
                 <a href="#" class="text-white hover:text-gray-200">About</a>
                 <a href="#" class="text-white hover:text-gray-200">Contact</a>
                 <div class="relative dropdown">
-                    <div class="bg-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer">
-                        <i class="fa-solid fa-user text-gray-600 text-lg"></i>
+                    <div class="bg-white w-8 h-8 rounded-full flex items-center justify-center cursor-pointer">
+                        <i class="fa-solid fa-user text-gray-600 text-sm"></i>
                     </div>
                     <div class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg dropdown-menu">
                         <a href="#" class="block py-2 px-4 text-gray-800 hover:bg-gray-200">Logout</a>
@@ -35,23 +101,33 @@
             </div>
         </div>
     </header>
-    <div class="container mx-auto px-4 py-8 flex justify-center items-center">
-        <button class="bg-red-600 text-white rounded-full px-4 py-2 hover:bg-white hover:text-red-600">Create a new drive</button>
+    <div class="container mx-auto py-8">
+        <h1 class="text-2xl font-bold mb-4">Create a new drive</h1>
+        <form class="form-container">
+            <div class="form-group">
+                <label for="driveName">Drive Name</label>
+                <input id="driveName" class="rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter Drive Name">
+            </div>
+            <div class="form-group">
+                <label for="venue">Venue</label>
+                <input id="venue" class="rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter Venue">
+            </div>
+            <div class="form-group">
+                <label for="pincode">Pincode</label>
+                <input id="pincode" class="rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter Pincode">
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input id="date" class="rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date">
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg" type="submit">Submit</button>
+            </div>
+        </form>
     </div>
-    <div class="container mx-auto px-4 py-8"> 
-        <h2 class="text-xl font-semibold mb-4">Drives created by you</h2>
-    </div>
-    <footer class="bg-red-800 text-white py-4 text-center fixed bottom-0 w-full">
+    <footer>
         <p>&copy; 2024 Blood Bank. All rights reserved.</p>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.dropdown').forEach(function(dropdown) {
-                dropdown.addEventListener('click', function() {
-                    dropdown.querySelector('.dropdown-menu').classList.toggle('hidden');
-                });
-            });
-        });
-    </script>
 </body>
+
 </html>
